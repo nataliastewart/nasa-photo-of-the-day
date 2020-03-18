@@ -3,7 +3,7 @@ import NasaCard from "./NasaCard";
 import axios from "axios";
 
 export default function NasaHeader() {
-  const [nasaPhoto, setNasaPhoto] = useState([]);
+  const [nasaPhoto, setNasaPhoto] = useState("");
 
   useEffect(() => {
     axios
@@ -11,6 +11,7 @@ export default function NasaHeader() {
       .then(response => {
         // console.log(response);
         console.log("RESPONSE DATA: ", response.data);
+        setNasaPhoto(response.data);
       })
       .catch(error => {
         console.log("The data was not returned by axios NasaHeader", error);
@@ -19,16 +20,12 @@ export default function NasaHeader() {
 
   return (
     <div className="cardWrapper">
-      {nasaPhoto.map(item => {
-        return (
-          <NasaCard
-            title={item.title}
-            date={item.date}
-            explain={item.explanation}
-            img={item.url}
-          />
-        );
-      })}
+      <NasaCard
+        title={nasaPhoto.title}
+        date={nasaPhoto.date}
+        explain={nasaPhoto.explanation}
+        img={nasaPhoto.url}
+      />
     </div>
   );
 }
