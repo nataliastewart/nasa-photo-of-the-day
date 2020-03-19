@@ -7,7 +7,9 @@ export default function NasaHeader() {
 
   useEffect(() => {
     axios
-      .get("https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY")
+      .get(
+        "https://api.nasa.gov/planetary/apod?api_key=TrP65ukXBTXsZ9FZDl0MmSRjcihhCl2YcOpTyLua"
+      )
       .then(response => {
         // console.log(response);
         console.log("RESPONSE DATA: ", response.data);
@@ -19,14 +21,12 @@ export default function NasaHeader() {
   }, []);
 
   return (
-    <div>
-      <NasaCard
-        title={nasaPhoto.title}
-        date={nasaPhoto.date}
-        explain={nasaPhoto.explanation}
-        img={nasaPhoto.url}
-        copyright={nasaPhoto.copyright}
-      />
-    </div>
+    <NasaCard
+      title={nasaPhoto.title}
+      date={nasaPhoto.date}
+      explain={nasaPhoto.explanation}
+      img={nasaPhoto.url}
+      copyright={nasaPhoto.copyright}
+    />
   );
 }

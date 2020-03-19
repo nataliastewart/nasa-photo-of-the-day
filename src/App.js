@@ -6,7 +6,11 @@ import { CardHeader } from "reactstrap";
 function App() {
   return (
     <div className="App">
-      <CardHeader>
+      <CardHeader
+        body
+        inverse
+        style={{ backgroundColor: "lightgrey", borderColor: "#333" }}
+      >
         Read through the instructions in the README.md file to build your NASA
         app! Have fun 🚀!
       </CardHeader>
