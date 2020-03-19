@@ -19,12 +19,13 @@ export default function NasaHeader() {
   }, []);
 
   return (
-    <div className="cardWrapper">
+    <div>
       <NasaCard
         title={nasaPhoto.title}
         date={nasaPhoto.date}
         explain={nasaPhoto.explanation}
         img={nasaPhoto.url}
+        copyright={nasaPhoto.copyright}
       />
     </div>
   );
